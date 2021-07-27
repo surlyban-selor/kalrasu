@@ -14,6 +14,9 @@ class ProfileCreateView(CreateView):
     success_url = reverse_lazy('accountapp:hello_world')
     template_name = 'profileapp/create.html'
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form) # 커스터마이징 하지 않은 순정상태
 
 
 
