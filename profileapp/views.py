@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
 
 from profileapp.forms import ProfileCreationForm
 from profileapp.models import Profile
@@ -19,4 +19,9 @@ class ProfileCreateView(CreateView):
         return super().form_valid(form) # 커스터마이징 하지 않은 순정상태
 
 
-
+class ProfileUpdateView(UpdateView): # 논리
+    model = Profile
+    form_class = ProfileCreationForm
+    context_object_name = 'target_profile'
+    success_url = reverse_lazy('accountapp:hello_world')
+    template_name = 'profileapp/update.html' # <= 을 사용해서 만들어주겠다.
