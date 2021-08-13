@@ -63,6 +63,6 @@ class ArticleListView(ListView):
     model = Article
     context_object_name = 'article_list'
     template_name = 'articleapp/list.html'
-    paginate_by = 1
+    paginate_by = 20
     # 리스트 뷰 로직
 
