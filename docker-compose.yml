@@ -5,4 +5,3 @@ services:
     image: kalrasu_django:1
     ports:
     - 8080:8000
-    networks:
