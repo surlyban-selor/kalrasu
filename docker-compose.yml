@@ -1,0 +1,8 @@
+version: "3.7"
+
+services:
+  django:
+    image: kalrasu_django:1
+    ports:
+    - 8080:8000
+    networks:
