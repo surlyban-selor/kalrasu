@@ -9,17 +9,30 @@ services:
     networks:
       - gis_3ban_network
     volumes:
-      - /home/ubuntu/nginx.conf:etc/nginx/nginx.conf
+      - /home/ubuntu/nginx.conf:/etc/nginx/nginx.conf
       - kalrasu_static:/data/static/
       - kalrasu_media:/data/media/
 
   django:
-    image: kalrasu_django:3
-    network:
+    image: kalrasu_django:4
+    networks:
       - gis_3ban_network
     volumes:
       - kalrasu_static:/home/kalrasu/staticfiles/
       - kalrasu_media:/home/kalrasu/media/
+
+  mariadb:
+    image: mariadb:10.5
+    networks:
+      - gis_3ban_network
+    volumes:
+      - kalrasu_mariadb:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: password1234
+      MARIADB_DATABASE: django
+      MARIADB_USER: django
+      MARIADB_PASSWORD: password1234
+
 
 networks:
   gis_3ban_network:
@@ -27,3 +40,4 @@ networks:
 volumes:
   kalrasu_static:
   kalrasu_media:
+  kalrasu_mariadb:
