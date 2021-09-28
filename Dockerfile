@@ -2,13 +2,13 @@ FROM python:3.9.0
 
 WORKDIR /home/
 
-RUN echo 'mnbvcdserty'
+RUN echo 'wedfghjkmjnbvc'
 
 RUN git clone https://github.com/surlyban-selor/kalrasu.git
 
 WORKDIR /home/kalrasu/
 
-RUN echo "SECRET_KEY=django-insecure-35(nb)&l9jlb%x88t=@)+^fb*2!enjth_)s5^j%u6j4e!f95lc" > .env
+# RUN echo "SECRET_KEY=django-insecure-35(nb)&l9jlb%x88t=@)+^fb*2!enjth_)s5^j%u6j4e!f95lc" > .env
 
 RUN pip install -r requirement.txt
 
