@@ -20,6 +20,8 @@ services:
     volumes:
       - kalrasu_static:/home/kalrasu/staticfiles/
       - kalrasu_media:/home/kalrasu/media/
+    secrets:
+      - kalrasu_DJANGO_SECRET_KEY
 
   mariadb:
     image: mariadb:10.5
@@ -41,3 +43,7 @@ volumes:
   kalrasu_static:
   kalrasu_media:
   kalrasu_mariadb:
+
+secrets:
+  kalrasu_DJANGO_SECRET_KEY:
+    external: true
