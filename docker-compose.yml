@@ -42,7 +42,7 @@ services:
       MARIADB_ROOT_PASSWORD_FILE: /run/secrets/MARIADB_ROOT_PASSWORD
 
 
-networks:
+networks:z
   gis_3ban_network:
 
 volumes:
